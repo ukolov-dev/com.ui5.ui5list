@@ -8,7 +8,17 @@
       "version": "1.0.0"
     },
     "title": "{{appTitle}}",
-    "description": "{{appDescription}}"
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "invoiceRemote":{
+        "uri": "/Northwind/V2/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+
   },
   "sap.ui": {
     "technology": "UI5",
@@ -51,6 +61,9 @@
         "settings": {
           "bundleName": "com.ui5.ui5list.i18n.i18n"
         }
+      },
+      "invoice":{
+        "dataSource": "invoiceRemote"
       }
     },
     "resources": {

@@ -1,11 +1,37 @@
  <mvc:View controllerName="com.ui5.ui5list.controller.App"
   displayBlock="true"
   xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
+  xmlns:mvc="sap.ui.core.mvc"
+  	xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f">
   <App id="idAppControl" >
     <pages>
       <Page title="{i18n>title}">
-        <content></content>
+        <content>
+        	<Panel id="panelForGridList">
+		<headerToolbar>
+			<Toolbar height="3rem">
+				<Title text="GridList with default grid layout" />
+			</Toolbar>
+		</headerToolbar>
+
+		<f:GridList
+			id="gridList"
+			headerText="GridList header"
+			items="{/items}">
+			<f:GridListItem>
+				<VBox class="sapUiSmallMargin">
+					<layoutData>
+						<FlexItemData growFactor="1" shrinkFactor="0" /> <!-- Don't shrink below minimum size. Fill space if available. -->
+					</layoutData>
+
+					<Title text="{title}" wrapping="true" />
+					<Label text="{subtitle}" wrapping="true" />
+				</VBox>
+			</f:GridListItem>
+		</f:GridList>
+	</Panel>
+        </content>
       </Page>
     </pages>
   </App>
